@@ -173,20 +173,21 @@ So, we'll implement these things here.
 First, Change Our UserObserver to this, so that we could add new Post after `created()` and `updated()` event.
 
 ```
- public function created(User $user)
+public function created(User $user)
 {
-    // $user->name = "Mr. " . $user->name;
-    // $user->save();
+    $user->name = "Mr. ".$user->name;
+    $user->save();
 
-    $title = 'New User ' . $user->name . ' Created successfully';
-    $description = 'New User ' . $user->name . ' Created. Created - ' . $user->created_at->diffForHumans();
+    $title = "This post is created by ".$user->name;
+    $description = "Post creator name is ".$user->name." and is email is ".$user->email." and post is created at ".$user->created_at;
 
     Post::create([
-        'title'       => $title,
+        'title' => $title,
         'description' => $description,
-        'user_id'     => $user->id,
-        'category_id' => 1
+        'category_id' => 1,
+        'user_id' => $user->id,
     ]);
+
 }
 
 public function updated(User $user)
