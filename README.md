@@ -248,6 +248,19 @@ Then write this command in tinker console :
 ```
 Post::orderBy('id', 'desc')->limit(2)->get();
 ```
+# These are by default event. There's more we can get in Laravel observer. Let's grab them all.
 
+- creating
+- created
+- saving
+- saved
+- deleting
+- deleted
+- updating
+- updated
+- restoring
+- restored
+- forceDeleted
+- retreived
 
 # Documented by :  `Proshenjit Karmakar - Full Stack Developer`.
